@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Juego del ahorcado</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <!-- <img src="images/logo.svg"> -->
+        </header>
+        <main>
+            <section class="menu-principal">
+                <div class="contenedor-botones">
+                    <button class="boton" id="boton-iniciar">Iniciar juego</button>
+                    <button class="boton" id="boton-agregar-palabra">Agregar palabra nueva</button>
+                </div>
+            </section>
+
+            <section class="seccion-juego display-none">
+                <p class="letras-clave"></p>
+                <p class="letras-erroneas"></p>
+                <button class="boton" id="boton-nuevo-juego">Nuevo juego</button>
+                <button class="boton" id="boton-salir">Salir</button>
+            </section>
+            
+            <section class="seccion-agregar-palabra display-none">
+                <textarea type="text" id="texto-agregar" placeholder="Ingrese una palabra"></textarea>
+                <div class="contenedor-botones">
+                    <button class="boton" id="boton-guardar">Guardar y empezar</button>
+                    <button class="boton" id="boton-cancelar">Cancelar</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+        <script src="js/menu-principal.js"></script>
+        <script src="js/agregar-palabra.js"></script>
+        <script src="js/juego.js"></script>
+    </body>
+</html>

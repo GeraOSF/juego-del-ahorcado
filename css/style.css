@@ -1,0 +1,20 @@
+:root {
+    --color-bg: #f5f0e9;
+    --color-blanco: #fefefe;
+    --color-naranja-fuerte: #d38a24;
+    --color-naranja-light: #f6e6d1;
+    --color-gris-fuerte: #343A40;
+    --color-gris-light: #495057;
+    --gradiente-footer: linear-gradient(#f5f0e9, #f9cc91);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-gris-light);
+    color: var(--color-blanco);
+}
+
+.display-none {
+    display: none;
+}
