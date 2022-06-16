@@ -1,6 +1,6 @@
 const botonNuevoJuego = document.querySelector("#boton-nuevo-juego");
 const botonSalir = document.querySelector("#boton-salir");
-
+let letrasErroneas = [];
 let intentos = 10;
 let palabraEnJuego = ''
 
@@ -33,13 +33,15 @@ document.addEventListener("keypress", (e) => {
     if (letraEncontrada) {
         letraAcertada(letra, indexes);
     } else {
-        intentos--;
+        if (letrasErroneas.includes(letra)) {
+            return;
+        }
+        letrasErroneas.push(letra);
+        letraErronea(letra);
         if (intentos <= 0) {
             alert(`Haz perdido!, la palabra correcta era ${palabraEnJuego}`);
             resetearJuego();
-            return;
         }
-        letraErronea(letra);
     }
 });
 
@@ -47,29 +49,9 @@ function generarPalabra() {
     return palabras[Math.round(Math.random() * (cantidadPalabras - 1))];
 }
 
-function letraAcertada(letra, indexes) {  // Muestra las letras en el lugar correcto
-    // const indexesLen = indexes.length;
-    // for (let i = 0; i < indexesLen; i++) {
-    //     letrasClave.children[indexes[i]].textContent = letra;
-    // }
-}
-
-function letraErronea(letra) {    // Muestra la letra en las letras erroneas
-    const cantidadLetrasErr = letrasErroneas.children.length;
-    for (let i = 0; i < cantidadLetrasErr; i++) { // Revisar si la letra ya esta en la lista
-        if (letrasErroneas.children[i].textContent == letra) {
-            return;
-        }
-    }
-    const spam = document.createElement("spam");
-    spam.textContent = letra;
-    letrasErroneas.appendChild(spam);
-}
-
 function resetearJuego() {
     intentos = 10;
-    // letrasClave.innerHTML = '';
-    // letrasErroneas.innerHTML = '';
+    limpiarCanvas();
     palabraEnJuego = generarPalabra();
     placeholdearPalabra(palabraEnJuego);
     console.log(palabraEnJuego);
