@@ -15,6 +15,10 @@
     color: var(--color-blanco);
 }
 
+#canvas {
+    background-color: var(--color-naranja-light);
+}
+
 .display-none {
     display: none;
 }

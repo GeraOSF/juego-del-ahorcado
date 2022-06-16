@@ -1,10 +1,10 @@
 const botonNuevoJuego = document.querySelector("#boton-nuevo-juego");
 const botonSalir = document.querySelector("#boton-salir");
-const letrasClave = document.querySelector(".letras-clave");
-const letrasErroneas = document.querySelector(".letras-erroneas");
+
 let intentos = 10;
 let palabraEnJuego = ''
 
+// Asignar la funcion resetearJuego al boton nuevo juego
 botonNuevoJuego.onclick = resetearJuego;
 
 botonSalir.onclick = () => {
@@ -12,9 +12,11 @@ botonSalir.onclick = () => {
     hacerVisible(seccionMenuPrincipal);
 }
 
+// Palabras iniciales
 const palabras = ["HTML", "JAVASCRIPT", "AHORCADO", "JUEGO", "TECLADO", "MONITOR", "REFRIGERADOR", "FERROCARRIL", "GORILA"];
 let cantidadPalabras = palabras.length;
 
+// Event listener para verificar si la letra esta en la palabra
 document.addEventListener("keypress", (e) => {
     if (seccionJuego.classList.contains("display-none")) {
         return;
@@ -45,20 +47,11 @@ function generarPalabra() {
     return palabras[Math.round(Math.random() * (cantidadPalabras - 1))];
 }
 
-function placeholdearPalabra(palabraEnJuego) {
-    const palabraLen = palabraEnJuego.length;
-    for (let i = 0; i < palabraLen; i++) {
-        const spam = document.createElement("spam");
-        spam.textContent = " . ";
-        letrasClave.appendChild(spam);
-    }
-}
-
 function letraAcertada(letra, indexes) {  // Muestra las letras en el lugar correcto
-    const indexesLen = indexes.length;
-    for (let i = 0; i < indexesLen; i++) {
-        letrasClave.children[indexes[i]].textContent = letra;
-    }
+    // const indexesLen = indexes.length;
+    // for (let i = 0; i < indexesLen; i++) {
+    //     letrasClave.children[indexes[i]].textContent = letra;
+    // }
 }
 
 function letraErronea(letra) {    // Muestra la letra en las letras erroneas
@@ -75,8 +68,8 @@ function letraErronea(letra) {    // Muestra la letra en las letras erroneas
 
 function resetearJuego() {
     intentos = 10;
-    letrasClave.innerHTML = '';
-    letrasErroneas.innerHTML = '';
+    // letrasClave.innerHTML = '';
+    // letrasErroneas.innerHTML = '';
     palabraEnJuego = generarPalabra();
     placeholdearPalabra(palabraEnJuego);
     console.log(palabraEnJuego);
