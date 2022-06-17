@@ -24,6 +24,7 @@ document.addEventListener("keypress", (e) => {
     const letra = e.key.toUpperCase();
     const indexes = [];
     let letraEncontrada = false;
+    // Se hace la busqueda en un ciclo for y cada letra que coincida lo pushea a indexes
     for (let index in palabraEnJuego) {
         if (letra == palabraEnJuego[index]) {
             letraEncontrada = true;
@@ -51,8 +52,15 @@ function generarPalabra() {
 
 function resetearJuego() {
     intentos = 10;
+    letrasErroneas = [];
+    posiciones = [];
     limpiarCanvas();
     palabraEnJuego = generarPalabra();
     placeholdearPalabra(palabraEnJuego);
     console.log(palabraEnJuego);
+}
+
+function sleep(ms) {
+    console.log("sleeping")
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
