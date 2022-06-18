@@ -96,13 +96,13 @@ function dibujarCuerpo() {
 }
 
 function dibujarPiernaIzq() {
-  ctx.moveTo(canvas.width/2, 290);
+  ctx.moveTo(canvas.width/2, 295);
   ctx.lineTo(canvas.width/2 - 50, 350);
   ctx.stroke();
 }
 
 function dibujarPiernaDer() {
-  ctx.moveTo(canvas.width/2, 290);
+  ctx.moveTo(canvas.width/2, 295);
   ctx.lineTo(canvas.width/2 + 50, 350);
   ctx.stroke();
 }
@@ -136,5 +136,14 @@ function dibujarBoca() {
 
 function limpiarCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // TODO: Hacer la base
+  ctx.lineWidth = 30;
+  ctx.beginPath();
+  ctx.moveTo(canvas.width/2 + 50, 30);
+  ctx.lineTo(canvas.width/2 - 200, 30);
+  ctx.lineTo(canvas.width/2 - 200, 400);
+  ctx.moveTo(canvas.width/2 - 300, 400);
+  ctx.lineTo(canvas.width/2 - 100, 400);
+  ctx.stroke();
+  ctx.closePath();
+  ctx.lineWidth = 10;
 }
