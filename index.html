@@ -4,17 +4,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Juego del ahorcado</title>
+        <link rel="icon" href="images/icon.webp" type="image/icon type">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <header>
-            <!-- <img src="images/logo.svg"> -->
-        </header>
         <main>
             <section class="menu-principal">
+                <img src="images/logo-ahorcado.png">
                 <div class="contenedor-botones">
                     <button class="boton" id="boton-iniciar">Iniciar juego</button>
                     <button class="boton" id="boton-agregar-palabra">Agregar palabra nueva</button>
@@ -22,21 +22,29 @@
             </section>
 
             <section class="seccion-juego display-none">
+                <img src="images/logo-ahorcado.png">
                 <canvas id="canvas" width="1000" height="600"></canvas>
-                <button class="boton" id="boton-nuevo-juego">Nuevo juego</button>
-                <button class="boton" id="boton-salir">Salir</button>
+                <div class="contenedor-botones">
+                    <button class="boton" id="boton-nuevo-juego">Nuevo juego</button>
+                    <button class="boton" id="boton-salir">Salir</button>
+                </div>
             </section>
             
             <section class="seccion-agregar-palabra display-none">
-                <textarea type="text" id="texto-agregar" placeholder="Ingrese una palabra"></textarea>
+                <img src="images/logo-ahorcado.png">
+                <textarea type="text" id="texto-agregar" maxlength="15" placeholder="Ingrese una palabra"></textarea>
                 <div class="contenedor-botones">
-                    <button class="boton" id="boton-guardar">Guardar y empezar</button>
+                    <button class="boton" id="boton-guardar">Guardar palabra</button>
                     <button class="boton" id="boton-cancelar">Cancelar</button>
                 </div>
             </section>
         </main>
         <footer>
-
+            <h6 class="realizado-por">Realizado por Gerardo Gómez</h6>
+            <ul class="links-contacto">
+                <li><a href="https://github.com/GeraOSF" target="_blank"><img src="images/github-logo.png"></a></li>
+                <li><a href="https://www.linkedin.com/in/gerardo-gomez-romero-83619a200" target="_blank"><img src="images/linkedin-logo.png"></a></li>
+            </ul>
         </footer>
         <script src="js/menu-principal.js"></script>
         <script src="js/agregar-palabra.js"></script>

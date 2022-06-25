@@ -5,18 +5,115 @@
     --color-naranja-light: #f6e6d1;
     --color-gris-fuerte: #343A40;
     --color-gris-light: #495057;
-    --gradiente-footer: linear-gradient(#f5f0e9, #f9cc91);
 }
 
-*, *::before, *::after {
-    margin: 0;
+body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--color-gris-light);
-    color: var(--color-blanco);
+    background-color: var(--color-bg);
+}
+
+button, textarea {
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-principal img {
+    display: block;
+    margin: 0 auto;
+}
+
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;    
+}
+
+.boton {
+    background-color: var(--color-naranja-light);
+    color: var(--color-naranja-fuerte);
+    width: 20rem;
+    padding: 1.5rem;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 2rem;
+    border-color: var(--color-naranja-fuerte);
+    transition: 0.2s;
+}
+
+.boton:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 8px;
+    cursor: pointer;
+}
+
+.seccion-juego {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-juego img, .seccion-agregar-palabra img {
+    float: left;
+    align-self: flex-start;
+    width: 150px;
+    padding-left: 1rem;
 }
 
 #canvas {
-    background-color: var(--color-naranja-light);
+    display: block;
+    margin: 0 auto;
+}
+
+.seccion-agregar-palabra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#texto-agregar {
+    width: 16rem;
+    text-align: center;
+    color: var(--color-naranja-fuerte);
+    background-color: var(--color-bg);
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+#texto-agregar::placeholder {
+    color: var(--color-naranja-fuerte);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #495057;
+    font-family: "Inter", "sans-seriff";
+    font-size: 1rem;
+    font-weight: bold;
+    background: var(--color-naranja-light);
+    border-top-style: solid;
+    border-top-color: var(--color-naranja-fuerte);
+    border-top-width: 4px;
+}
+
+.realizado-por {
+    padding: 0.5em;
+}
+
+.links-contacto > li {
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+    padding: 1em;
+}
+
+li img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .display-none {
