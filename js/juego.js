@@ -1,6 +1,7 @@
 const botonNuevoJuego = document.querySelector("#boton-nuevo-juego");
 const botonSalir = document.querySelector("#boton-salir");
 let letrasErroneas = [];
+let letrasEncontradas = [];
 let intentos = 10;
 let palabraEnJuego = '';
 let numLetrasAcertadas = 0;
@@ -30,21 +31,25 @@ document.addEventListener("keypress", (e) => {
     const indexes = [];
     let letraEncontrada = false;
     // Se hace la busqueda en un ciclo for y cada letra que coincida lo pushea a indexes
-    for (let index in palabraEnJuego) {
-        if (letra == palabraEnJuego[index]) {
-            numLetrasAcertadas++;
-            letraEncontrada = true;
-            indexes.push(index);
+    if (!letrasEncontradas.includes(letra)) {
+        for (let index in palabraEnJuego) {
+            if (letra == palabraEnJuego[index]) {
+                numLetrasAcertadas++;
+                letraEncontrada = true;
+                indexes.push(index);
+            }
         }
     }
+    
     if (letraEncontrada) {
+        letrasEncontradas.push(letra);
         letraAcertada(letra, indexes);
         if (numLetrasAcertadas == palabraEnJuego.length) {
             setTimeout(() => {alert(`Felicidades, haz ganado!, la palabra correcta fue ${palabraEnJuego}!`)}, 1);
             juegoTerminado = true;
         }
     } else {
-        if (letrasErroneas.includes(letra)) {
+        if (letrasErroneas.includes(letra) || letrasEncontradas.includes(letra)) {
             return;
         }
         letrasErroneas.push(letra);
@@ -61,9 +66,11 @@ function generarPalabra() {
 }
 
 function resetearJuego() {
+    juegoTerminado = false;
     intentos = 10;
     numLetrasAcertadas = 0;
     letrasErroneas = [];
+    letrasEncontradas = [];
     posiciones = [];
     limpiarCanvas();
     palabraEnJuego = generarPalabra();
